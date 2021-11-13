@@ -5,6 +5,8 @@ RUN pip install --no-cache-dir -i http://mirrors.aliyun.com/pypi/simple/ \
 
 ADD . /app
 
+EXPOSE 5001
+
 ENV GUNICORN_CMD_ARGS="--bind=0.0.0.0:5001 --chdir=./app/ --workers=4"
 
 CMD ["gunicorn", "app:app"]
